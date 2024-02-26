@@ -1,16 +1,10 @@
-import drugtable
-import nametoid
-import os
-import math
+import drugtable, nametoid, os, platform, math
 from colorama import Fore, Back, Style
-# print(Fore.RED + 'some red text')
-# print(Back.GREEN + 'and with a green background')
-# print(Style.DIM + 'and in dim text')
-# print(Style.RESET_ALL)
+
 def userInput():
     while True:
         drugtable.money = int(math.floor(float(drugtable.money)))
-        user_input = input(Fore.BLUE + "\nWhat would you like to do? " + Fore.RED)
+        user_input = input(Fore.BLUE + "\nWhat would you like to do? " + Fore.RED).lower()
         # print('\n')
         drugtable.money=int(drugtable.money)
         if user_input == "buy" or user_input == 'b':
@@ -69,7 +63,8 @@ def userInput():
         if user_input == 'price':
             price = input(Fore.BLUE+ '\nPrice of what? ' + Fore.RED)
             print(Fore.GREEN + f'\nThe price of {price} is {drugtable.table[nametoid.toID(price)][1]} money.' + Style.RESET_ALL)
-        if user_input == 'cls':
-            os.system('cls')
-        if user_input == 'clear':
-            os.system('clear')
+        if user_input == 'cls' or user_input == 'clear':
+            if platform.system() == "Windows":
+               os.system('cls')
+            elif platform.system() in ["Linux", "Darwin"]:  
+                os.system('clear')
