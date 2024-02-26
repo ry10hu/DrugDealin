@@ -9,5 +9,5 @@ def timeloop():
       number = random.randint(-20, 20)
       if drugtable.table[x][1] + number > 0:
         drugtable.table[x][1] += number
-    time.sleep(10)
+    time.sleep(60)
     
