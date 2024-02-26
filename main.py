@@ -7,12 +7,9 @@ if platform.system() == "Windows":
         os.system('cls')
 elif platform.system() in ["Linux", "Darwin"]:  
     os.system('clear')
-    
 global table # ID, Price, Amount, Name
 global money
 money = 100
-
-
 
 
 
@@ -25,5 +22,3 @@ threadTimeloop.start()
 threadCommands.join()
 
 threadTimeloop.join()
-
-
