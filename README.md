@@ -26,15 +26,15 @@ To execute a command simply type it, press enter and give the information needed
 
 
 As of 2/25/2024 these are the current commands:
-* `buy`
-  * Buys drugs. (Can be shortened to `b`)
-* `sell`
-  * Sells drugs. (Can be shortened to `s`)
-* `inventory`
-  * Lists all drugs and how many you own along with the current price. (Can be shortened to `i`)
+* `buy` or `b`
+  * Buys drugs.
+* `sell` or `s`
+  * Sells drugs.
+* `inventory` or `i`
+  * Lists all drugs and how many you own along with the current price.
 * `price`
   * Check the price of a certain drug
-* `balance`
-  * Tells you how much money you have. (Can be shortened to `bal`)
+* `balance` or `bal`
+  * Tells you how much money you have. 
 * `clear` or `cls`
   * Clears the terminal
