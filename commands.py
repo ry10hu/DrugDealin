@@ -55,7 +55,7 @@ def userInput():
         if user_input == 'inventory' or user_input == 'i':
             print('\n')
             for x in range(0, len(drugtable.table)):
-                print(f'{drugtable.table[x][3]} Owned:  {drugtable.table[x][2]}      Current Price: {drugtable.table[x][1]}')
+                print(f'{drugtable.table[x][3]} Owned:  {drugtable.table[x][2]}       Current Price: {drugtable.table[x][1]}')
             print('\n')
 
         if user_input == 'balance' or user_input == 'bal':
@@ -64,4 +64,7 @@ def userInput():
             price = input('\nPrice of what? ')
             print(f'\nThe price of {price} is {drugtable.table[nametoid.toID(price)][1]}\n')
         if user_input == 'cls' or user_input == 'clear':
-            os.system('cls')
+            if os.name() == 'posix':
+                os.system('clear')
+            if os.name() == 'nt':
+                os.system('cls')
