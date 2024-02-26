@@ -2,17 +2,23 @@ import drugtable
 import nametoid
 import os
 import math
+from colorama import Fore, Back, Style
+# print(Fore.RED + 'some red text')
+# print(Back.GREEN + 'and with a green background')
+# print(Style.DIM + 'and in dim text')
+# print(Style.RESET_ALL)
 def userInput():
     while True:
         drugtable.money = int(math.floor(float(drugtable.money)))
-        user_input = input("\nWhat would you like to do? ")
+        user_input = input(Fore.BLUE + "\nWhat would you like to do? " + Fore.RED)
+        # print('\n')
         drugtable.money=int(drugtable.money)
         if user_input == "buy" or user_input == 'b':
-            buying = input('\nWhat would you like to buy? (nvm to cancel) ')
+            buying = input(Fore.BLUE + '\nWhat would you like to buy? (nvm to cancel) ' + Fore.RED)
             if buying == 'nvm':
                 continue
 
-            amount = input('\nHow much would you like to buy? (nvm to cancel) ')
+            amount = input(Fore.BLUE + '\nHow much would you like to buy? (nvm to cancel) ' + Fore.RED)
             try:
                 if amount == 'nvm':
                     continue
@@ -25,17 +31,17 @@ def userInput():
                     drugtable.table[nametoid.toID(buying)][2] += amount
                 else:
                     req = amount * drugtable.table[nametoid.toID(buying)][1] - drugtable.money
-                    print(f'\nGrind harder, you broke idiot. (You need {req} more money)\n')
+                    print(Fore.GREEN + f'\nGrind harder, you broke idiot. (You need {req} more money)' + Fore.RED)
             except ValueError:
                 print('\nEnter a numeric value or a shorthand (max). \n')
                 continue
 
         if user_input == 'sell' or user_input == 's':
-            selling = input('\nWhat would you like to sell? (nvm to cancel) ')
+            selling = input(Fore.BLUE + '\nWhat would you like to sell? (nvm to cancel) ' + Fore.RED)
             if selling == 'nvm':
               continue
             
-            amount = input('\nHow much would you like to sell? (nvm to cancel) ')
+            amount = input(Fore.BLUE + '\nHow much would you like to sell? (nvm to cancel) ' + Fore.RED)
             try:
                 if amount == 'nvm':
                     continue
@@ -47,22 +53,22 @@ def userInput():
                     drugtable.money += amount * drugtable.table[nametoid.toID(selling)][1]
                     drugtable.table[nametoid.toID(selling)][2]-= amount
                 else:
-                    print('\nYou can\'t sell what you don\'t have, idiot.\n')
+                    print(Fore.GREEN + '\nYou can\'t sell what you don\'t have, idiot.' + Fore.RED)
             except ValueError:
                 print('\nEnter a numeric value or a shorthand (max). \n')
                 continue
 
         if user_input == 'inventory' or user_input == 'i':
-            print('\n')
+            
             for x in range(0, len(drugtable.table)):
-                print(f'{drugtable.table[x][3]} Owned:  {drugtable.table[x][2]}      Current Price: {drugtable.table[x][1]}')
-            print('\n')
+                print(Fore.GREEN + f'\n{drugtable.table[x][3]} Owned:  {drugtable.table[x][2]}      Current Price: {drugtable.table[x][1]}' + Fore.RED)
+            
 
         if user_input == 'balance' or user_input == 'bal':
-            print(f'\nYou have {drugtable.money} money.\n')
+            print(Fore.GREEN + f'\nYou have {drugtable.money} money.' + Style.RESET_ALL)
         if user_input == 'price':
-            price = input('\nPrice of what? ')
-            print(f'\nThe price of {price} is {drugtable.table[nametoid.toID(price)][1]}\n')
+            price = input(Fore.BLUE+ '\nPrice of what? ' + Fore.RED)
+            print(Fore.GREEN + f'\nThe price of {price} is {drugtable.table[nametoid.toID(price)][1]} money.' + Style.RESET_ALL)
         if user_input == 'cls':
             os.system('cls')
         if user_input == 'clear':
