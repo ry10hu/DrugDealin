@@ -6,8 +6,8 @@ import drugtable
 def timeloop():
   while True:
     for x in range(0, len(drugtable.table)):
-      number = random.randint(-100, 100)
+      number = random.randint(-20, 20)
       if drugtable.table[x][1] + number > 0:
         drugtable.table[x][1] += number
-      # time.sleep(1)
+    time.sleep(10)
     

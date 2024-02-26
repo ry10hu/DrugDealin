@@ -4,7 +4,7 @@ import os
 def userInput():
     while True:
         user_input = input("What would you like to do? ")
-
+        drugtable.money=int(drugtable.money)
         if user_input == "buy" or user_input == 'b':
             buying = input('What would you like to buy? (nvm to cancel) ')
             if buying == 'nvm':
@@ -14,13 +14,16 @@ def userInput():
             try:
                 if amount == 'nvm':
                     continue
-                amount = int(amount)
+                if amount == 'max':
+                    amount = drugtable.money/drugtable.table[nametoid.toID(buying)][1]
+                else:
+                    amount = int(amount)
                 if drugtable.money >= amount * drugtable.table[nametoid.toID(buying)][1]:
                     drugtable.money -= amount * drugtable.table[nametoid.toID(buying)][1]
                     drugtable.table[nametoid.toID(buying)][2] += amount
                 else:
                     req = amount * drugtable.table[nametoid.toID(buying)][1] - drugtable.money
-                    print(f'Grind harder, you broke ass. (You need {req} more money)')
+                    print(f'Grind harder, you broke idiot. (You need {req} more money)')
             except ValueError:
                 print('Enter a numeric value. ')
                 continue
@@ -34,9 +37,12 @@ def userInput():
             try:
                 if amount == 'nvm':
                     continue
-                amount = int(amount)
+                if amount == 'max':
+                    amount = drugtable.table[nametoid.toID(selling)][2]
+                else:
+                    amount = int(amount)
                 if drugtable.table[nametoid.toID(selling)][2] >= amount:
-                    drugtable.money += amount * drugtable.table[selling][2]
+                    drugtable.money += amount * drugtable.table[nametoid.toID(selling)][1]
                     drugtable.table[nametoid.toID(selling)][2]-= amount
                 else:
                     print('You can\'t sell what you don\'t have, idiot.')
