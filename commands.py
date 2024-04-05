@@ -20,7 +20,7 @@ def userInput():
                 buying = user_input[1]
                 amount = user_input[2]
             else:
-                print(colours.answercolour + '\nERROR: WRONG SYNTAX. The Correct Syntax Is: buy {drug} {amount}' + colours.warningcolourcolour)
+                print(colours.answercolour + '\nERROR: WRONG SYNTAX. The Correct Syntax Is: buy {drug} {amount}' + colours.warningcolour)
                 continue
             try:
                 if amount == 'max':
