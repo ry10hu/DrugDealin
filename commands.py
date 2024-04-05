@@ -20,7 +20,7 @@ def userInput():
                 buying = user_input[1]
                 amount = user_input[2]
             else:
-                print(colours.answercolour + f'\nERROR: WRONG SYNTAX. The Correct Syntax Is: buy drug amount' + colours.inputcolour)
+                print(colours.answercolour + '\nERROR: WRONG SYNTAX. The Correct Syntax Is: buy {drug} {amount}' + colours.warningcolourcolour)
                 continue
             try:
                 if amount == 'max':
@@ -42,7 +42,7 @@ def userInput():
                 selling = user_input[1]
                 amount = user_input[2]
             else:
-                print(colours.answercolour + f'\nERROR: WRONG SYNTAX. The Correct Syntax Is: sell drug amount' + colours.inputcolour)
+                print(colours.answercolour + '\nERROR: WRONG SYNTAX. The Correct Syntax Is: sell {drug} {amount}' + colours.inputcolour)
 
             try:
                 if amount == 'max':
@@ -53,7 +53,7 @@ def userInput():
                     drugtable.money += amount * drugtable.table[nametoid.toID(selling)][1]
                     drugtable.table[nametoid.toID(selling)][2]-= amount
                 else:
-                    print(colours.answercolour + '\nYou can\'t sell what you don\'t have, idiot.' + colours.inputcolour)
+                    print(colours.answercolour + '\nYou can\'t sell what you don\'t have.' + colours.inputcolour)
             except ValueError:
                 print('\nEnter a numeric value or a shorthand (max). \n')
                 continue
