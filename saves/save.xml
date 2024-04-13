@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<save>
+ <items>
+  <drugs>
+   <meth owned="0" price="10"/>
+   <cocaine owned="0" price="20"/>
+   <heroin owned="0" price="30"/>
+   <marijuana owned="0" price="40"/>
+   <opium owned="0" price="50"/>
+  </drugs>
+  <money owned="100"/>
+ </items>
+</save>
