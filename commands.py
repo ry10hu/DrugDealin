@@ -4,7 +4,7 @@ from colorama import Fore, Back, Style
 def userInput():
     while True:
         drugtable.money = int(math.floor(float(drugtable.money)))
-        user_input = input(colours.questioncolour + "\nWhat would you like to do? " + colours.inputcolour).lower()
+        user_input = input(colours.questioncolour + "\nWhat would you like to do? " + colours.inputcolour).lower().split()
         # print('\n')
         if len(user_input) >= 1:            
             if user_input[0] == 'save':
@@ -20,6 +20,7 @@ def userInput():
             drugtable.money=int(drugtable.money)
 
             if user_input[0] == "buy" or user_input[0] == 'b':
+                print(len(user_input))
                 if len(user_input) == 3:
                     buying = user_input[1]
                     amount = user_input[2]
