@@ -11,3 +11,5 @@ def timeloop():
         drugtable.savetable[x][1] += number
     time.sleep(60)
     
+
+
