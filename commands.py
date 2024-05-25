@@ -1,22 +1,29 @@
 import drugtable, nametoid, os, platform, math, random, colours
+import xml.etree.cElementTree as ET
 from colorama import Fore, Back, Style
 
 def userInput():
     while True:
-
+        save = ET.Element('save')
+        items = ET.SubElement(save, 'items')
         drugtable.money = int(math.floor(float(drugtable.money)))
         user_input = input(colours.questioncolour + "\nWhat would you like to do? " + colours.inputcolour).lower().split()
         # print('\n')
-        if len(user_input) >= 1:            
-        
-            if user_input[0] == 'save':
-        
-                print(colours.answercolour + '\nSaving...' + colours.inputcolour)
-        
-                with open('saves/save.xml', 'w') as f:
-                    f.write(drugtable.Bs_save.prettify())
-                print(colours.answercolour + '\nSaved!' + colours.inputcolour)
-        
+        if len(user_input) >= 1:
+            if user_input[0] =='save':
+                ### Saves the user's drug information
+                ET.SubElement(items, 'meth', price=str(drugtable.savetable[0][1]), owned=str(drugtable.savetable[0][2]))
+                ET.SubElement(items, 'cocaine', price=str(drugtable.savetable[1][1]), owned=str(drugtable.savetable[1][2]))
+                ET.SubElement(items, 'heroin', price=str(drugtable.savetable[2][1]), owned=str(drugtable.savetable[2][2]))
+                ET.SubElement(items, 'marijuana', price=str(drugtable.savetable[3][1]), owned=str(drugtable.savetable[3][2]))
+                ET.SubElement(items, 'opium', price=str(drugtable.savetable[4][1]), owned=str(drugtable.savetable[4][2]))
+                tree = ET.ElementTree(save)
+                tree.write('saves/save.xml')         
+                
+            # if user_input[0] == 'load':
+            #     print('\n' + colours.answercolour + 'Loading...' + '\n')
+            #     drugtable.savetable = drugtable.loadtable
+            #     print(colours.answercolour + 'Loaded!')
             if user_input[0] == 'changestock':
         
                 for x in range(0, len(drugtable.savetable)):
