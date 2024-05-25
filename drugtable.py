@@ -21,9 +21,11 @@ savetable = [
     [4, 50, 0, 'Opium'],
 ]
 loadtable = [
-    [0, meth['price'], 0, 'Meth'],
-    [1, cocaine['price'], 0, 'Cocaine'],
-    [2, heroin['price'], 0, 'Heroin'],
-    [3, marijuana['price'], 0, 'Marijuana'],
-    [4, opium['price'], 0, 'Opium'],
+    [0, int(meth['price']), int(meth['owned']), 'Meth'],
+    [1, int(cocaine['price']), int(cocaine['owned']), 'Cocaine'],
+    [2, int(heroin['price']), int(heroin['owned']), 'Heroin'],
+    [3, int(marijuana['price']), int(marijuana['owned']), 'Marijuana'],
+    [4, int(opium['price']), int(opium['owned']), 'Opium'],
 ]
+print(loadtable)
+print(type(loadtable[0][2]))
