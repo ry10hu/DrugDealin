@@ -6,3 +6,4 @@ inputcolour = Fore.RED
 questioncolour = Fore.BLUE
 answercolour = Fore.GREEN
 warningcolour = Fore.YELLOW
+reset = Fore.RESET
