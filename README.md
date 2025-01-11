@@ -1,5 +1,9 @@
 # DrugDealin
 ---
+# THIS IS AN OLD PROJECT AND YOU WILL NOT GET ANY HELP WITH RUNNING IT ET. CETERA.
+# I have created a much more organized and optimized successor at [ry10hu/Stocker](https://github.com/ry10hu/Stocker)
+---
+
 # Requirements
 * Python 3
 * Colorama
